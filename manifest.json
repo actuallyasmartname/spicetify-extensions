@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Quick Sample Search",
+    "description": "quickly open a WhoSampled tab to search for song samples",
+    "preview": "icon.png",
+    "main": "quickSampleSearch.js",
+    "readme": "README.md",
+    "authors": [
+        { "name": "actuallyasmartname", "url": "https://github.com/actuallyasmartname" }
+    ],
+    "tags": ["sample", "search"]
+  }
+]
