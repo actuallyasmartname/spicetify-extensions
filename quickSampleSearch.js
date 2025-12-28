@@ -68,16 +68,17 @@
     function showSampleModal() {
         const meta = Spicetify.Player.data?.item;
 
-        const artist = meta.artists.map(artist => artist.name).join(", ");
+        const artistSearch = meta.artists[0].name; // only take the first artist, whosampled works better like this
+        const artistDisplay = meta.artists.map(artist => artist.name).join(", "); // full metadata for UI display
         const trackName = meta.name;
 
-        const whoSampledUrl = `https://www.whosampled.com/search/?q=${encodeURIComponent(artist + " " + trackName)}`;
+        const whoSampledUrl = `https://www.whosampled.com/search/?q=${encodeURIComponent(artistSearch + " " + trackName)}`;
 
         const content = document.createElement("div");
         content.className = "sample-modal-container";
         content.innerHTML = `
             <div class="sample-modal-title">${trackName}</div>
-            <div class="sample-modal-artist">by ${artist}</div>
+            <div class="sample-modal-artist">by ${artistDisplay}</div>
             <div class="sample-button-group">
                 <button class="sample-btn" id="open-whosampled">find samples (via WhoSampled)</button>
                 <button class="sample-btn secondary" id="copy-search">copy search query</button>
